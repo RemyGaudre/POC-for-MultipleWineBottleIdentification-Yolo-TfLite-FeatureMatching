@@ -107,12 +107,6 @@ python save_model.py --weights ./data/yolov4.weights --output ./checkpoints/yolo
 # yolov4
 python convert_tflite.py --weights ./checkpoints/yolov4-416 --output ./checkpoints/yolov4-416.tflite
 
-# yolov4 quantize float16
-python convert_tflite.py --weights ./checkpoints/yolov4-416 --output ./checkpoints/yolov4-416-fp16.tflite --quantize_mode float16
-
-# yolov4 quantize int8
-python convert_tflite.py --weights ./checkpoints/yolov4-416 --output ./checkpoints/yolov4-416-int8.tflite --quantize_mode int8
-
 ```
 ### Run Objection Detection using TFLite Model
 
@@ -124,10 +118,6 @@ python detect.py --weights ./checkpoints/yolov4-416.tflite --size 416 --model yo
 python detect_video.py --weights ./checkpoints/yolov4-416.tflite --size 416 --model yolov4 --video ./data/japan.mp4 --output ./detections/video_output.avi --framework tflite
 
 ```
-##### Yolov4 tflite int8 weight
-<p align="center"><img src="result-int8.png" width="640"\></p>
-
-Yolov4 and Yolov4-tiny int8 quantization have some issues.
 
 # FPS Comparison
 
