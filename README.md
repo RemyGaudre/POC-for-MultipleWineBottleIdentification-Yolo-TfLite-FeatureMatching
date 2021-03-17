@@ -119,6 +119,15 @@ python detect_video.py --weights ./checkpoints/yolov4-416.tflite --size 416 --mo
 
 ```
 
+# Run bottle identification
+First, make a picture of your bottle and only your bottle with a white background if possible. Put this picture in the RessourceImagesVins folder. After this, you can identify this bottle. To do this : make the picture you want of the bottle, update image_path in findBottle.py and run it with :
+
+```bash
+# Run identification
+python findBottle.py
+
+```
+
 # FPS Comparison
 
 We use ``japan.mp4`` for all the experiments and report following results.
