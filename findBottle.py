@@ -142,11 +142,13 @@ flann = cv2.FlannBasedMatcher(index_params, {})
 
 
 n = 0
-nbouteilles=0
+nbottle=0
 for i in classes.numpy()[0][:valid_detections.numpy()[0]]:
     print(str(i) +" : " + labels[int(i)])
+
+    #Test to determine if we found a bottle in each object detected
     if int(i) == 39 and scores.numpy()[0][n] >= 0.29:
-        nbouteilles +=1
+        nbottle +=1
         print("A bottle has been found")
         print("Score :" + str(scores.numpy()[0][n]))
         coor = boxes.numpy()[0][n]
@@ -156,24 +158,31 @@ for i in classes.numpy()[0][:valid_detections.numpy()[0]]:
         coor[3] = int(coor[3] * image_w)
         print("Corresponding coord : " + str(coor))
 
+        #Crop on bottle
         crop_img = original_image0[abs(int(coor[0])):int(coor[2]), abs(int(coor[1])):int(coor[3])]
-
         crop_img_resize = cv2.resize(crop_img, (416, 416))
-        cv2.imshow("cropped" + str(nbouteilles), crop_img_resize)
-        cv2.moveWindow("cropped" + str(nbouteilles), int(1920 / 10 * (nbouteilles - 1)), int(1080 / 2))
+        cv2.imshow("cropped" + str(nbottle), crop_img_resize)
+        cv2.imwrite("Output/crop_img" + str(nbottle)+".jpg", crop_img_resize)
+        cv2.moveWindow("cropped" + str(nbottle), int(1920 / 10 * (nbottle - 1)), int(1080 / 2))
+
+        #Detect and compute descriptors
         kp, des = orb.detectAndCompute(crop_img_resize, None)
         crop_img_wkp = drawKeyPts(crop_img_resize.copy(), kp, (0, 255, 0), 2)
-
-        cv2.imshow("cropped with keypoints" + str(nbouteilles), crop_img_wkp)
-        cv2.moveWindow("cropped with keypoints" + str(nbouteilles), int((1920 / 2) + 1920 / 10 * (nbouteilles - 1)),
+        cv2.imshow("cropped with keypoints" + str(nbottle), crop_img_wkp)
+        cv2.moveWindow("cropped with keypoints" + str(nbottle), int((1920 / 2) + 1920 / 10 * (nbottle - 1)),
                        int(int(1080 / 2)))
+        cv2.imwrite("Output/crop_img_wkp" + str(nbottle)+".jpg", crop_img_wkp)
+
+
+
         id = findID(crop_img, desList, thres=1)
         if id != -1:
             correspondingImage = cv2.imread(f'{ressources}/{myList[id]}', 1)
             correspondingImage = cv2.resize(correspondingImage, (int(1920 / 8), int(1080 / 2)))
-            cv2.imshow("Corresponding image found for bottle " + str(nbouteilles), correspondingImage)
-            cv2.moveWindow("Corresponding image found for bottle " + str(nbouteilles), int((1920 / 4) * 3),
+            cv2.imshow("Corresponding image found for bottle " + str(nbottle), correspondingImage)
+            cv2.moveWindow("Corresponding image found for bottle " + str(nbottle), int((1920 / 4) * 3),
                            int(0))
+            cv2.imwrite("Output/CorrespondingBottleForBottle" + str(nbottle)+".jpg", correspondingImage)
         else:
             print('Not found in Wine base')
 
