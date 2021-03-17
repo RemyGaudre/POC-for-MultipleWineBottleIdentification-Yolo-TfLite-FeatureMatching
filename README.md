@@ -127,6 +127,7 @@ First, make a picture of your bottle and only your bottle with a white backgroun
 python findBottle.py
 
 ```
+You will see the demo of bottle identification. And it will be saved in Output folder.
 
 # FPS Comparison
 
