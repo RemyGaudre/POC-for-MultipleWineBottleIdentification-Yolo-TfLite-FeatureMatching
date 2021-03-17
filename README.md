@@ -1,9 +1,9 @@
-# Convert Darknet YOLOv4 or YOLOv3 to TensorFlow Model
+# Convert Darknet YOLOv4 to TensorFlow Model
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 YOLOv4, YOLOv4-tiny Implemented in Tensorflow 2.3. 
 
-This repository shows how to convert YOLO v4, YOLOv3, YOLO tiny .weights to .pb, .tflite and trt format for tensorflow, tensorflow lite, tensorRT.
+This repository shows how to convert YOLO v4, YOLOv3, YOLO tiny .weights to .pb, and .tflite format for tensorflow, tensorflow lite.
 
 
 1. [Setting Up Environment](#setting-up-environment)
@@ -184,18 +184,6 @@ python train.py --weights ./data/yolov4.weights
 The training performance is not fully reproduced yet, so I recommended to use Alex's [Darknet](https://github.com/AlexeyAB/darknet) to train your own data, then convert the .weights to tensorflow or tflite.
 
 
-
-# TODO
-* [x] Convert YOLOv4 to TensorRT
-* [x] YOLOv4 tflite on android
-* [ ] YOLOv4 tflite on ios
-* [x] Training code
-* [x] Update scale xy
-* [ ] ciou
-* [ ] Mosaic data augmentation
-* [x] Mish activation
-* [x] yolov4 tflite version
-* [x] yolov4 in8 tflite version for mobile
 
 # References
 
