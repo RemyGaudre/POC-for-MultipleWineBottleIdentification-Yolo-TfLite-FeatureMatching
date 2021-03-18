@@ -3,7 +3,7 @@
 
 YOLOv4, YOLOv4-tiny Implemented in Tensorflow 2.3. 
 
-This repository shows how to convert YOLO v4, YOLOv3, YOLO tiny .weights to .pb, and .tflite format for tensorflow, tensorflow lite.
+This repository shows how to convert YOLO v4, YOLOv3, YOLO tiny .weights to .pb, and .tflite format for tensorflow, tensorflow lite. After this model can be used to identify wine bottle using the findBottle.py programm.
 
 
 1. [Setting Up Environment](#setting-up-environment)
