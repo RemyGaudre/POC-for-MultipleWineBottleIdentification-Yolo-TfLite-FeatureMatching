@@ -13,7 +13,8 @@ This repository shows how to run the POC (proof of concept) to identify multiple
 3. [Convert YOLOv4 to TensorFlow](#convert-yolov4-to-tensorflow)
    * [Run Object Detection](#run-object-detection)
 4. [Convert YOLOv4 to tflite](#convert-to-tflite)
-   * [Run Objection Detection using TFLite Model](#run-object_detection-using-tflite-model)
+   * [Run Object Detection using TFLite Model](#run-object_detection-using-tflite-model)
+   * [Run bottle identification](#run-bottle-identification)
 5. [FPS Comparison](#fps-comparison)
 
 
