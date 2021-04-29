@@ -9,7 +9,7 @@ This repository shows how to run the POC (proof of concept) to identify multiple
 1. [Setting Up Environment](#setting-up-environment)
    * [Using Conda](#using-conda)
    * [Using Pip](#using-pip)
-2. [Run Objection Detection using TFLite Model](#run-object_detection-using-tflite-model)
+2. [Run bottle identification](#run-bottle-identification)
 3. [Convert YOLOv4 to TensorFlow](#convert-yolov4-to-tensorflow)
    * [Run Object Detection](#run-object-detection)
 4. [Convert YOLOv4 to tflite](#convert-to-tflite)
