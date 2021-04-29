@@ -3,17 +3,18 @@
 
 YOLOv4, YOLOv4-tiny Implemented in Tensorflow 2.3. 
 
-This repository shows how to convert YOLO v4, YOLOv3, YOLO tiny .weights to .pb, and .tflite format for tensorflow, tensorflow lite. After this model can be used to identify wine bottle using the findBottle.py program.
+This repository shows how to run the POC (proof of concept) to identify multiple Wine Bottles and also how to convert YOLO v4, YOLOv3, YOLO tiny .weights to .pb, and .tflite format for tensorflow, tensorflow lite.
 
 
 1. [Setting Up Environment](#setting-up-environment)
    * [Using Conda](#using-conda)
    * [Using Pip](#using-pip)
-2. [Convert YOLOv4 to TensorFlow](#convert-yolov4-to-tensorflow)
+2. [Run Objection Detection using TFLite Model](#run-object_detection-using-tflite-model)
+3. [Convert YOLOv4 to TensorFlow](#convert-yolov4-to-tensorflow)
    * [Run Object Detection](#run-object-detection)
-3. [Convert YOLOv4 to tflite](#convert-to-tflite)
+4. [Convert YOLOv4 to tflite](#convert-to-tflite)
    * [Run Objection Detection using TFLite Model](#run-object_detection-using-tflite-model)
-4. [FPS Comparison](#fps-comparison)
+5. [FPS Comparison](#fps-comparison)
 
 
 
@@ -56,8 +57,17 @@ pip install -r requirements-gpu.txt
 # Performance
 <p align="center"><img src="data/performance.png" width="640"\></p>
 
+# Run bottle identification
+First, make a picture of your bottle and only your bottle with a white background if possible. Put this picture in the RessourceImagesVins folder. After this, you can identify this bottle. To do this : make the picture you want of the bottle, update image_path in findBottle.py and run it with :
+
+```bash
+# Run identification
+python findBottle.py
+
+```
+
 # Download Weights File
-If using `tiny` version, it is already there with yolov4-tiny-416.tflite.
+If using `tiny` version, it is already there with yolov4-tiny-416.tflite. You do not need to download and convert it.
 
 If you want to use original YoloV4 weigths : Download  `yolov4.weights` file 245 MB: [yolov4.weights](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights) (Google-drive mirror [yolov4.weights](https://drive.google.com/open?id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT) )
 
@@ -108,7 +118,7 @@ python save_model.py --weights ./data/yolov4.weights --output ./checkpoints/yolo
 python convert_tflite.py --weights ./checkpoints/yolov4-416 --output ./checkpoints/yolov4-416.tflite
 
 ```
-### Run Objection Detection using TFLite Model
+### Run Object Detection using TFLite Model
 
 ```bash
 # Run demo tflite model
